@@ -46,12 +46,9 @@ CI)
 
     . set_maven_build_version $TRAVIS_BUILD_NUMBER
 
-    mvn org.jacoco:jacoco-maven-plugin:prepare-agent deploy sonar:sonar \
+    mvn org.jacoco:jacoco-maven-plugin:prepare-agent deploy \
           $MAVEN_OPTIONS \
-          -Pdeploy-sonarsource \
-          -Dsonar.host.url=$SONAR_HOST_URL \
-          -Dsonar.login=$SONAR_TOKEN \
-          -Dsonar.projectVersion=$INITIAL_VERSION
+          -Pdeploy-sonarsource
 
   elif [[ "$TRAVIS_BRANCH" == "branch-"* ]] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
     echo 'release branch: trigger QA, no analysis'
