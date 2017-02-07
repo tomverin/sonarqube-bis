@@ -1477,6 +1477,176 @@
     </profile>
 
     <profile>
+            <id>stats</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>log_validate</id>
+                                <phase>validate</phase>
+                                <goals><goal>run</goal></goals>
+                                <configuration>
+                                    <tasks>
+                                        <tstamp><format property="stepTstamp" pattern="dd-HH:mm:ss" locale="en,US" /></tstamp>
+                                        <echo file="stats.log" append="true"
+                                              message="${line.separator}${line.separator}${stepTstamp} validate${line.separator}"/>
+                                        <echo message="### ${stepTstamp} validate${line.separator}"/>
+                                    </tasks>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>log_initialize</id>
+                                <phase>initialize</phase>
+                                <goals><goal>run</goal></goals>
+                                <configuration>
+                                    <tasks>
+                                        <tstamp><format property="stepTstamp" pattern="dd-HH:mm:ss" locale="en,US" /></tstamp>
+                                        <echo file="stats.log" append="true"
+                                              message="${stepTstamp} initialize${line.separator}"/>
+                                        <echo message="### ${stepTstamp} initialize${line.separator}"/>
+                                    </tasks>
+                                </configuration>
+                            </execution>              
+                            <execution>
+                                <id>log_generate_sources</id>
+                                <phase>generate-sources</phase>
+                                <goals><goal>run</goal></goals>
+                                <configuration>
+                                    <tasks>
+                                        <tstamp><format property="stepTstamp" pattern="dd-HH:mm:ss" locale="en,US" /></tstamp>
+                                        <echo file="stats.log" append="true"
+                                              message="${stepTstamp} generate-sources${line.separator}"/>
+                                        <echo message="### ${stepTstamp} generate-sources${line.separator}"/>
+                                    </tasks>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>log_process_sources</id>
+                                <phase>process-sources</phase>
+                                <goals><goal>run</goal></goals>
+                                <configuration>
+                                    <tasks>
+                                        <tstamp><format property="stepTstamp" pattern="dd-HH:mm:ss" locale="en,US" /></tstamp>
+                                        <echo file="stats.log" append="true"
+                                              message="${stepTstamp} process-sources${line.separator}"/>
+                                        <echo message="### ${stepTstamp} process-sources${line.separator}"/>
+                                    </tasks>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>log_generate_resources</id>
+                                <phase>generate-resources</phase>
+                                <goals><goal>run</goal></goals>
+                                <configuration>
+                                    <tasks>
+                                        <tstamp><format property="stepTstamp" pattern="dd-HH:mm:ss" locale="en,US" /></tstamp>
+                                        <echo file="stats.log" append="true"
+                                              message="${stepTstamp} generate-resources${line.separator}"/>
+                                        <echo message="### ${stepTstamp} generate-resources${line.separator}"/>
+                                    </tasks>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>log_process_resources</id>
+                                <phase>process-resources</phase>
+                                <goals><goal>run</goal></goals>
+                                <configuration>
+                                    <tasks>
+                                        <tstamp><format property="stepTstamp" pattern="dd-HH:mm:ss" locale="en,US" /></tstamp>
+                                        <echo file="stats.log" append="true"
+                                              message="${stepTstamp} process-resources${line.separator}"/>
+                                        <echo message="### ${stepTstamp} process-resources${line.separator}"/>
+                                    </tasks>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>log_compile</id>
+                                <phase>compile</phase>
+                                <goals><goal>run</goal></goals>
+                                <configuration>
+                                    <tasks>
+                                        <tstamp><format property="stepTstamp" pattern="dd-HH:mm:ss" locale="en,US" /></tstamp>
+                                        <echo file="stats.log" append="true"
+                                              message="${stepTstamp} compile${line.separator}"/>
+                                        <echo message="### ${stepTstamp} compile${line.separator}"/>
+                                    </tasks>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>log_process_classes</id>
+                                <phase>process-classes</phase>
+                                <goals><goal>run</goal></goals>
+                                <configuration>
+                                    <tasks>
+                                        <tstamp><format property="stepTstamp" pattern="dd-HH:mm:ss" locale="en,US" /></tstamp>
+                                        <echo file="stats.log" append="true"
+                                              message="${stepTstamp} process-classes${line.separator}"/>
+                                        <echo message="### ${stepTstamp} process-classes${line.separator}"/>
+                                    </tasks>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>log_prepare_package</id>
+                                <phase>prepare-package</phase>
+                                <goals><goal>run</goal></goals>
+                                <configuration>
+                                    <tasks>
+                                        <tstamp><format property="stepTstamp" pattern="dd-HH:mm:ss" locale="en,US" /></tstamp>
+                                        <echo file="stats.log" append="true"
+                                              message="${stepTstamp} prepare-package${line.separator}"/>
+                                        <echo message="### ${stepTstamp} prepare-package${line.separator}"/>
+                                    </tasks>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>log_package</id>
+                                <phase>package</phase>
+                                <goals><goal>run</goal></goals>
+                                <configuration>
+                                    <tasks>
+                                        <tstamp><format property="stepTstamp" pattern="dd-HH:mm:ss" locale="en,US" /></tstamp>
+                                        <echo file="stats.log" append="true"
+                                              message="${stepTstamp} package${line.separator}"/>
+                                        <echo message="### ${stepTstamp} package${line.separator}"/>
+                                    </tasks>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>log_install</id>
+                                <phase>install</phase>
+                                <goals><goal>run</goal></goals>
+                                <configuration>
+                                    <tasks>
+                                        <tstamp><format property="stepTstamp" pattern="dd-HH:mm:ss" locale="en,US" /></tstamp>
+                                        <echo file="stats.log" append="true"
+                                              message="${stepTstamp} install${line.separator}"/>
+                                        <echo message="### ${stepTstamp} install${line.separator}"/>
+                                    </tasks>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>log_deploy</id>
+                                <phase>deploy</phase>
+                                <goals><goal>run</goal></goals>
+                                <configuration>
+                                    <tasks>
+                                        <tstamp><format property="stepTstamp" pattern="dd-HH:mm:ss" locale="en,US" /></tstamp>
+                                        <echo file="stats.log" append="true"
+                                              message="${stepTstamp} deploy${line.separator}"/>
+                                        <echo message="### ${stepTstamp} deploy${line.separator}"/>
+                                    </tasks>
+                                </configuration>
+                            </execution>                            
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+    <profile>
       <!-- integration, performance and upgrade tests -->
       <id>tests</id>
       <modules>

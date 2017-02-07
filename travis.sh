@@ -48,7 +48,7 @@ CI)
 
     mvn org.jacoco:jacoco-maven-plugin:prepare-agent deploy \
           $MAVEN_OPTIONS \
-          -Pdeploy-sonarsource
+          -Pdeploy-sonarsource,stats
 
   elif [[ "$TRAVIS_BRANCH" == "branch-"* ]] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
     echo 'release branch: trigger QA, no analysis'
@@ -57,7 +57,7 @@ CI)
 
     mvn deploy \
         $MAVEN_OPTIONS \
-        -Pdeploy-sonarsource,release
+        -Pdeploy-sonarsource,release,stats
 
   elif [ "$TRAVIS_PULL_REQUEST" != "false" ] && [ -n "${GITHUB_TOKEN:-}" ]; then
     echo 'Internal pull request: trigger QA and analysis'
@@ -67,7 +67,7 @@ CI)
     mvn org.jacoco:jacoco-maven-plugin:prepare-agent deploy sonar:sonar \
         $MAVEN_OPTIONS \
         -Dsource.skip=true \
-        -Pdeploy-sonarsource \
+        -Pdeploy-sonarsource,stats \
         -Dsonar.analysis.mode=preview \
         -Dsonar.github.pullRequest=$TRAVIS_PULL_REQUEST \
         -Dsonar.github.repository=$TRAVIS_REPO_SLUG \
