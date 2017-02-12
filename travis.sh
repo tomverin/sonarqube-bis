@@ -35,7 +35,7 @@ CI)
   INITIAL_VERSION=`maven_expression "project.version"`
 
   if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
-    echo 'Analyse and trigger QA of master branch'
+    echo 'Trigger QA of master branch'
 
     # Fetch all commit history so that SonarQube has exact blame information
     # for issue auto-assignment
