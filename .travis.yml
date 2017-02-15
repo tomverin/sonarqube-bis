@@ -6,7 +6,6 @@ script: ./travis.sh
 
 env:
   - TARGET=CI
-  - TARGET=WEB
 
 matrix:
   fast_finish: true
